@@ -77,7 +77,7 @@ public static class FestiveSpacesSetup
         root.GetComponent<MeshRenderer>().sharedMaterial=material;
         var prefab=PrefabUtility.SaveAsPrefabAsset(root,PlanePrefabPath);
         Object.DestroyImmediate(root);
-        return prefab.GetComponent<ARPlane>();
+        return prefab;
     }
 
     static void CreateDecorationPrefabs()
