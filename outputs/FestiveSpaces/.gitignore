@@ -1,0 +1,42 @@
+# Unity generated data
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+MemoryCaptures/
+Recordings/
+
+# IDE and editor files
+.vs/
+.vscode/
+.idea/
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svclog
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# macOS / Xcode generated data
+.DS_Store
+*.hmap
+*.ipa
+*.xcuserstate
+xcuserdata/
+DerivedData/
+
+# Builds and archives
+*.apk
+*.aab
+*.app
+*.xcodeproj/
+*.xcarchive/
