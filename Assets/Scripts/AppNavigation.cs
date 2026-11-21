@@ -212,7 +212,19 @@ namespace FestiveSpaces
 
         void ButtonCard(string label,Vector2 anchor,Color color,UnityEngine.Events.UnityAction action)
         {
-            var button=Button(label,anchor,new Vector2(.82f,.17f),color,action);
+            Button(label,anchor,new Vector2(.82f,.17f),color,action);
+        }
+
+        RectTransform MakeRect(string name,Transform parent,Vector2 anchorMin,Vector2 anchorMax)
+        {
+            var rectObject=new GameObject(name,typeof(RectTransform));
+            rectObject.transform.SetParent(parent,false);
+            var rect=rectObject.GetComponent<RectTransform>();
+            rect.anchorMin=anchorMin;
+            rect.anchorMax=anchorMax;
+            rect.offsetMin=Vector2.zero;
+            rect.offsetMax=Vector2.zero;
+            return rect;
         }
 
         Sprite MakeRoundedSprite()

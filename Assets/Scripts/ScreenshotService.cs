@@ -19,8 +19,8 @@ namespace FestiveSpaces
         {
             if (uiCanvas != null) uiCanvas.enabled = false;
             yield return new WaitForEndOfFrame();
-            Texture2D capture = ScreenCapture.CaptureScreenshotAsTexture();
-            byte[] png = capture.EncodeToPNG();
+            Texture2D capture = UnityEngine.ScreenCapture.CaptureScreenshotAsTexture();
+            byte[] png = UnityEngine.ImageConversion.EncodeToPNG(capture);
             Destroy(capture);
             if (uiCanvas != null) uiCanvas.enabled = true;
             string name = "FestiveSpaces_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".png";
