@@ -64,10 +64,20 @@ public static class FestiveSpacesSetup
     {
         if (AssetDatabase.LoadAssetAtPath<Material>("Assets/Materials/DetectedPlane.mat") != null)
             AssetDatabase.DeleteAsset("Assets/Materials/DetectedPlane.mat");
-        var material = new Material(Shader.Find("Universal Render Pipeline/Unlit") ?? Shader.Find("Standard"));
+        var planeShader = Shader.Find("Universal Render Pipeline/Unlit") ?? Shader.Find("Standard");
+        var material = new Material(planeShader);
         material.name = "Plane highlight material";
         material.color = new Color(.15f,.78f,.8f,.2f);
         material.SetOverrideTag("RenderType","Transparent");
+        // Configure the selected shader's surface mode before setting its transparent render queue.
+        if (material.HasProperty("_Surface"))
+        {
+            material.SetFloat("_Surface", 1f);
+            material.SetFloat("_Blend", 0f);
+            material.SetFloat("_AlphaClip", 0f);
+            material.EnableKeyword("_SURFACE_TYPE_TRANSPARENT");
+        }
+        if (material.HasProperty("_Mode")) material.SetFloat("_Mode", 3f);
         material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
         material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
         material.SetInt("_ZWrite",0); material.DisableKeyword("_ALPHATEST_ON"); material.EnableKeyword("_ALPHABLEND_ON");
